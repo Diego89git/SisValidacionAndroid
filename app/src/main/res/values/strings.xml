@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Procesos de Validacion Pendientes</string>
+    <string name="lisVal_titulo">Listado de Validaciones pendientes</string>
+    <string name="bt_verDetalle">Mostrar detalle de validación</string>
+</resources>
