@@ -2,7 +2,10 @@ package com.example.prueba;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +45,45 @@ public class MainActivity extends AppCompatActivity implements Callback<ArrayLis
     @Override
     public void onFailure(Call<ArrayList<Validacion>> call, Throwable t) {
         Log.d("Error","Error de coneccion");
+    }
+    public void actualizar(View v) {
+        Intent i = new Intent(MainActivity.this, MainActivity.class);
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(i);
+        overridePendingTransition(0, 0);
+    }
+    public void salir (View view) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Cierre de aplicacion");
+
+        alertDialogBuilder.setMessage("Está seguro que desea salir");
+        alertDialogBuilder.setCancelable(false);
+        alertDialogBuilder.setPositiveButton("SI",
+            new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        finishAffinity(); System.exit(0);
+                    }
+                });
+        alertDialogBuilder.setNeutralButton("CANCELAR",
+                new DialogInterface.OnClickListener()
+                { public void onClick(DialogInterface dialog, int id)
+                {
+                    dialog.cancel();
+                }
+                }) ;
+        alertDialogBuilder.setNegativeButton("NO",
+                new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
     public void verDetalleValidacion(View view){
         Validacion val=(Validacion)validaciones.getSelectedItem();
