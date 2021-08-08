@@ -5,4 +5,7 @@
     <string name="bt_actualizarVal">Actualizar</string>
     <string name="bt_salirVal">Salir</string>
     <string name="bt_entrarVal">Validar</string>
+    <string name="txtCorreo">ejemplo@uta.edu.ec</string>
+    <string name="txtPassword">Ingrese Contraseña</string>
+    <string name="btnIngresa">Ingresar</string>
 </resources>

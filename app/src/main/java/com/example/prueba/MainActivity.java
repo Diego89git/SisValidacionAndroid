@@ -87,12 +87,11 @@ public class MainActivity extends AppCompatActivity implements Callback<ArrayLis
     }
     public void verDetalleValidacion(View view){
         Validacion val=(Validacion)validaciones.getSelectedItem();
-        int id_val=Integer.parseInt(val.getIdVal());
+        int id_val=Integer.parseInt(val.getId());
         Call<ArrayList<DetalleValidacion>> call= Validacion_ApiAdapter.getApiService().getDetalleValidacionById(id_val);
         call.enqueue(new DetalleVal());
     }
     class DetalleVal  implements Callback<ArrayList<DetalleValidacion>> {
-
         @Override
         public void onResponse(Call<ArrayList<DetalleValidacion>> call, Response<ArrayList<DetalleValidacion>> response) {
             int tamaño= response.body().size();
@@ -107,5 +106,6 @@ public class MainActivity extends AppCompatActivity implements Callback<ArrayLis
         public void onFailure(Call<ArrayList<DetalleValidacion>> call, Throwable t) {
             Log.d("Error","Error de coneccion");
         }
+
     }
 }

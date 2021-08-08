@@ -21,7 +21,8 @@ public class MyApiAdapter {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.addInterceptor(logging);
 
-        String baseUrl = "http://192.168.0.101/sisvalidacion/restApi/";
+        //String baseUrl = "http://192.168.0.101/sisvalidacion/restApi/";
+        String baseUrl = "http://192.168.100.30/proyecto/SisValidacionApiRest/restApi/";
 
         if (API_SERVICE == null) {
             Retrofit retrofit = new Retrofit.Builder()
